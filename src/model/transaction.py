@@ -1,17 +1,76 @@
 # -*- coding: utf-8 -*-
 
-from src.model import res
+from src.model import res, constants as cs
+
 
 class Transactions:
     def __init__(self, data):
-        self.transactions = Transactions.factory(data)
+        self.resources = {
+            cs.Res.TRAVA: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+            cs.Res.BOXITY: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+            cs.Res.URAN: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+            cs.Res.MAK: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+            cs.Res.STAL: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+            cs.Res.ALUMINII: {
+                'buy': {
+                    'total': 0
+                },
+                'sell': {
+                    'total': 0
+                }
+            },
+        }
+        self.transactions = self.factory(data)
 
-    @staticmethod
-    def factory(data):
+    def factory(self, data):
         result  = []
         for line in data:
             if len(line.split()) > 3:
                 el = Transaction(line.split())
+                type = el.resource.type
+                if type in self.resources:
+                    res = self.resources[type]
+                    if el.resource.buy:
+                        action = res['buy']['total']
+                        res['buy']['total'] = action + el.resource.total
+                    elif el.resource.sell:
+                        action = res['sell']['total']
+                        res['sell']['total'] = action + el.resource.total
                 result.append(el)
         return result
 

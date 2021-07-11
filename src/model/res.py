@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-resources = ['Трава', 'Бокситы', 'Уран', 'Маковая соломка', 'Сталь', 'Алюминий']
+from src.model import constants as cs
+
+resources = [cs.Res.TRAVA, cs.Res.BOXITY, cs.Res.URAN, cs.Res.MAK, cs.Res.STAL, cs.Res.ALUMINII]
 resexp = {
     'Уран' : {
         10:1
@@ -27,9 +29,10 @@ class Resource:
         self.txt = ' '.join(data)
         self.buy = False
         self.sell = False
+        self.type = None
 
         for res in resources:
-            if res in ' '.join(data):
+            if res.value in ' '.join(data):
                 self.type = res
 
         self.count = -1
@@ -45,11 +48,9 @@ class Resource:
                 self.sell = True
                 self.count = data[index + 1]
             elif f'{self.type} за' == f'{data[index -1]} {el}' or f'{self.type} за' == f'{data[index -2]} {data[index -1]} {el}':
-                self.total = data[index + 1]
+                self.total = int(data[index + 1])
             elif '(' in el:
-                self.cost = el.replace('(', '')
-
-
+                self.cost = int(el.replace('(', ''))
 
     def __str__(self):
         text = f'Type:{self.type}'

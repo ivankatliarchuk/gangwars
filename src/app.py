@@ -14,3 +14,5 @@ def run():
     tr = transaction.Transactions(utils.read_from_file_lines(file=file))
     for el in tr.transactions:
         print(el)
+
+    print(tr.resources)
