@@ -13,7 +13,6 @@ class Transactions:
             if len(line.split()) > 3:
                 el = Transaction(line.split())
                 result.append(el)
-                print(el)
         return result
 
 class Transaction:
@@ -30,11 +29,10 @@ class Transaction:
         if 'продал' in self.txt:
             self.sell = True
 
-        self.resources = res.Resources(data[0], data[4:])
+        self.resource = res.Resource(data[0], data[4:])
 
     def __str__(self):
-        return f'Transaction: objId:{self.object_id}, time:{self.time}, buy:{self.buy}, \
-sell:{self.sell} '
+        return f'Transaction: objId:{self.object_id}, time:{self.time}. {self.resource}'
 
     def __repr__(self):
         return self.__str__()
