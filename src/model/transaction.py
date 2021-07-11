@@ -8,50 +8,62 @@ class Transactions:
         self.resources = {
             cs.Res.TRAVA: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
             cs.Res.BOXITY: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
             cs.Res.URAN: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
             cs.Res.MAK: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
             cs.Res.STAL: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
             cs.Res.ALUMINII: {
                 'buy': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 },
                 'sell': {
-                    'total': 0
+                    'total': 0,
+                    'cost': set()
                 }
             },
         }
@@ -66,11 +78,11 @@ class Transactions:
                 if type in self.resources:
                     res = self.resources[type]
                     if el.resource.buy:
-                        action = res['buy']['total']
-                        res['buy']['total'] = action + el.resource.total
+                        res['buy']['total'] += el.resource.total
+                        res['buy']['cost'].add(el.resource.cost)
                     elif el.resource.sell:
-                        action = res['sell']['total']
-                        res['sell']['total'] = action + el.resource.total
+                        res['sell']['total'] += el.resource.total
+                        res['sell']['cost'].add(el.resource.cost)
                 result.append(el)
         return result
 
