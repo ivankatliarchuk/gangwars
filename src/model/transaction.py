@@ -7,28 +7,34 @@ class Transactions:
     def __init__(self, data):
         self.resources = {
             cs.Res.TRAVA: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost(),
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
             cs.Res.BOXITY: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost(),
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
             cs.Res.URAN: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost(),
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
             cs.Res.MAK: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost()
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
             cs.Res.STAL: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost()
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
             cs.Res.ALUMINII: {
-                'buy': cost.Cost(),
-                'sell': cost.Cost()
+                'buy': cost.Cost('buy'),
+                'sell': cost.Cost('sell'),
+                'diff': 0
             },
         }
         self.transactions = self.factory(data)
@@ -42,9 +48,11 @@ class Transactions:
                 if type in self.resources:
                     res = self.resources[type]
                     if el.resource.buy:
-                        res['buy'].add('buy', el.resource.total, el.resource.cost)
+                        res['buy'].add(el.resource.total, el.resource.cost)
+                        res['diff'] -= el.resource.total
                     elif el.resource.sell:
-                        res['sell'].add('sell', el.resource.total, el.resource.cost)
+                        res['sell'].add(el.resource.total, el.resource.cost)
+                        res['diff'] += el.resource.total
                 result.append(el)
         return result
 
