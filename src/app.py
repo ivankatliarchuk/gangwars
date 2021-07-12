@@ -35,7 +35,7 @@ def run():
     total_balance = 0
 
     for e in tr.resources:
-        print ("{:<20} {:<15} {:<15} {:<15} {:<15} {:<15}".format(e, tr.resources[e]['buy'].total, tr.resources[e]['sell'].total, tr.resources[e]['diff'], tr.resources[e]['buy'].cost(), tr.resources[e]['sell'].cost()))
+        print ("{:<20} {:<15} {:<15} {:<15} {:<15} {:<15} {:<15}".format(e, tr.resources[e]['buy'].total, tr.resources[e]['sell'].total, tr.resources[e]['diff'], tr.resources[e]['buy'].cost(), tr.resources[e]['sell'].cost(), tr.resources[e]['sell'].experience))
         total_balance += tr.resources[e]['diff']
 
     print(f'Total Balance: {total_balance}')

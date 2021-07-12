@@ -18,7 +18,7 @@ class Cost:
             per_unit = self.type.experience(self.type)['units']
             per_value = self.type.experience(self.type)['value']
             self.units= units / per_unit
-            self.experience = self.units * per_value
+            self.experience += int(self.units * per_value)
         self.total += total
         self.costs.add(cost)
 

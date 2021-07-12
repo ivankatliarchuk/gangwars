@@ -19,7 +19,8 @@ class Transactions:
             cs.Res.URAN: {
                 'buy': cost.Cost('buy', cs.Res.URAN),
                 'sell': cost.Cost('sell', cs.Res.URAN),
-                'diff': 0
+                'diff': 0,
+                'exp': 0
             },
             cs.Res.MAK: {
                 'buy': cost.Cost('buy', cs.Res.MAK),
