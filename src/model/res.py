@@ -2,24 +2,8 @@
 
 from src.model import constants as cs
 
-resources = [cs.Res.TRAVA, cs.Res.BOXITY, cs.Res.URAN, cs.Res.MAK, cs.Res.STAL, cs.Res.ALUMINII]
-resexp = {
-    'Уран' : {
-        10:1
-    },
-    'Сталь' : {
-        5:1
-    },
-    'Бокситы': {
-        10:2
-    },
-    'Маковая соломка': {
-        10:1
-    },
-    'Алюминий': {
-        5:1
-    }
-}
+resources = [cs.Res.TRAVA, cs.Res.BOXITY, cs.Res.URAN, cs.Res.MAK, cs.Res.STAL, cs.Res.ALUMINII, cs.Res.GANJIUM]
+
 
 class Resource:
 

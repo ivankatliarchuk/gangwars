@@ -7,33 +7,38 @@ class Transactions:
     def __init__(self, data):
         self.resources = {
             cs.Res.TRAVA: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.TRAVA),
+                'sell': cost.Cost('sell', cs.Res.TRAVA),
                 'diff': 0
             },
             cs.Res.BOXITY: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.BOXITY),
+                'sell': cost.Cost('sell', cs.Res.BOXITY),
                 'diff': 0
             },
             cs.Res.URAN: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.URAN),
+                'sell': cost.Cost('sell', cs.Res.URAN),
                 'diff': 0
             },
             cs.Res.MAK: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.MAK),
+                'sell': cost.Cost('sell', cs.Res.MAK),
                 'diff': 0
             },
             cs.Res.STAL: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.STAL),
+                'sell': cost.Cost('sell', cs.Res.STAL),
                 'diff': 0
             },
             cs.Res.ALUMINII: {
-                'buy': cost.Cost('buy'),
-                'sell': cost.Cost('sell'),
+                'buy': cost.Cost('buy', cs.Res.ALUMINII),
+                'sell': cost.Cost('sell', cs.Res.ALUMINII),
+                'diff': 0
+            },
+            cs.Res.GANJIUM: {
+                'buy': cost.Cost('buy', cs.Res.ALUMINII),
+                'sell': cost.Cost('sell', cs.Res.ALUMINII),
                 'diff': 0
             },
         }
