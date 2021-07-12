@@ -16,7 +16,7 @@ class Res(Enum):
     # self is the member here
         return self.name, self.value
 
-    def experience(self):
+    def experience(self, type):
         return {
             Res.URAN : {
                 'units': 10,
@@ -46,7 +46,7 @@ class Res(Enum):
                 'units': 5,
                 'value': 1
             }
-        }[self.name]
+        }[type]
 
     def __str__(self):
         return f'{self.value}'
