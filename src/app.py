@@ -12,12 +12,12 @@ logging.getLogger("app").setLevel(logging.INFO)
 
 datetime_format = '%d.%m.%y %H:%M:%S'
 
-folders = "fixtures/transactions/11-07-2021/*"
+folders = "fixtures/transactions/12-07-2021/*"
 
 def run():
-    from_date_str = '11.07.21 00:51:18'
+    from_date_str = '12.07.21 00:01:18'
     from_date = datetime.strptime(from_date_str, datetime_format)
-    to_date_str = '11.07.21 23:44:16'
+    to_date_str = '13.07.21 23:55:40'
     to_date = datetime.strptime(to_date_str, datetime_format)
 
     lines = []
@@ -42,5 +42,5 @@ def run():
         total_balance += tr.resources[e]['diff']
         total_experience += tr.resources[e]['sell'].experience
 
-    print(f'Total Balance: {total_balance}')
-    print(f'Total Balance: {total_experience}')
+    print(f'Debit/Credit: {total_balance}')
+    print(f'Expirience: {total_experience}')
