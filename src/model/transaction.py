@@ -1,70 +1,34 @@
 # -*- coding: utf-8 -*-
 
-from src.model import res, constants as cs
+from src.model import res, constants as cs, cost
 
 
 class Transactions:
     def __init__(self, data):
         self.resources = {
             cs.Res.TRAVA: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost(),
             },
             cs.Res.BOXITY: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost(),
             },
             cs.Res.URAN: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost(),
             },
             cs.Res.MAK: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost()
             },
             cs.Res.STAL: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost()
             },
             cs.Res.ALUMINII: {
-                'buy': {
-                    'total': 0,
-                    'cost': set()
-                },
-                'sell': {
-                    'total': 0,
-                    'cost': set()
-                }
+                'buy': cost.Cost(),
+                'sell': cost.Cost()
             },
         }
         self.transactions = self.factory(data)
@@ -78,11 +42,9 @@ class Transactions:
                 if type in self.resources:
                     res = self.resources[type]
                     if el.resource.buy:
-                        res['buy']['total'] += el.resource.total
-                        res['buy']['cost'].add(el.resource.cost)
+                        res['buy'].add('buy', el.resource.total, el.resource.cost)
                     elif el.resource.sell:
-                        res['sell']['total'] += el.resource.total
-                        res['sell']['cost'].add(el.resource.cost)
+                        res['sell'].add('sell', el.resource.total, el.resource.cost)
                 result.append(el)
         return result
 
