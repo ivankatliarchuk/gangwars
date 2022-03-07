@@ -20,7 +20,7 @@ jobs:
     steps:
     # To use this repository's private action, you must check out the repository
     - name: "📥 Check-out"
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
